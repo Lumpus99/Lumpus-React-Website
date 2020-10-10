@@ -170,27 +170,6 @@ export default class Board extends React.Component {
         return (<div className="background">
                 <div>
                     <div className="config">
-                        <h4 className="label">Speed: {this.state.speed} milliseconds</h4>
-                        <Slider
-                            min={250}
-                            max={3000}
-                            step={250}
-                            dots={true}
-                            defaultValue={1000}
-                            dotStyle={{
-                                marginTop: 1,
-                            }}
-                            onChange={this.handleSpeedChange}
-                            trackStyle={{backgroundColor: '2e84b2', height: 10}}
-                            railStyle={{backgroundColor: '349890', height: 10}}
-                            handleStyle={{
-                                borderColor: '67cbc3',
-                                height: 28,
-                                width: 28,
-                                marginLeft: 0,
-                                marginTop: -9,
-                                backgroundColor: 'black',
-                            }}/>
                         <h4 className="label">Board Size: {this.state.rowNum} X {this.state.colNum}</h4>
                         <Slider
                             min={0}
@@ -212,6 +191,28 @@ export default class Board extends React.Component {
                                 marginTop: -9,
                                 backgroundColor: 'black',
                             }}/>
+                        <h4 className="label">Speed: {this.state.speed} milliseconds</h4>
+                        <Slider
+                            min={250}
+                            max={3000}
+                            step={250}
+                            dots={true}
+                            defaultValue={1000}
+                            dotStyle={{
+                                marginTop: 1,
+                            }}
+                            onChange={this.handleSpeedChange}
+                            trackStyle={{backgroundColor: '2e84b2', height: 10}}
+                            railStyle={{backgroundColor: '349890', height: 10}}
+                            handleStyle={{
+                                borderColor: '67cbc3',
+                                height: 28,
+                                width: 28,
+                                marginLeft: 0,
+                                marginTop: -9,
+                                backgroundColor: 'black',
+                            }}/>
+
                         <div className="divider"/>
 
                     </div>
