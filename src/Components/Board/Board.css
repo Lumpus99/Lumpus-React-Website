@@ -1,0 +1,43 @@
+.gameBoard {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-group {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+
+.divider {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
+
+.cellDiv {
+    width: 27px;
+    height: 27px;
+}
+
+.config {
+    margin: auto;
+    display: table;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 100px;
+}
+
+.label {margin: 10px;}
