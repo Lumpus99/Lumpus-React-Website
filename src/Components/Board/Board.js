@@ -192,7 +192,6 @@ export default class Board extends React.Component {
                             defaultValue={2}
                             dotStyle={{
                                 marginTop: 1,
-                                borderColor: '#96DBFA',
                             }}
                             onChange={this.handleSizeChange}
                             trackStyle={{backgroundColor: '2e84b2', height: 10}}
@@ -234,7 +233,6 @@ export default class Board extends React.Component {
                                 backgroundColor: 'black',
                             }}/>
 
-                        <div className="divider"/>
 
                     </div>
                     <table className="gameBoard" cellSpacing={0}>

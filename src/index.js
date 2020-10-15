@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Board from './Components/Board/Board';
-
 import * as serviceWorker from './serviceWorker';
+import Background from "./Components/Background/Background";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Board />
+    <Background />
   </React.StrictMode>,
   document.getElementById('root')
 );

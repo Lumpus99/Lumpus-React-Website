@@ -31,16 +31,24 @@
     height: 27px;
 }
 
+.slider {
+    margin-bottom: 20px;
+
+}
+
 .config {
     margin: auto;
-    padding: 20px;
     display: table;
+    padding-right: 20px;
+    padding-left: 20px;
     align-items: center;
     justify-content: center;
     width: 400px;
     height: 100px;
-    background-color: #d8fffc;
+    background: rgba(216, 255, 252, 0.5);
 }
 
-.label {margin: 10px;}
+.label {
+    margin: 10px;
+}
 

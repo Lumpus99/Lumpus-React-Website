@@ -1,0 +1,21 @@
+.header {
+    text-align: center;
+}
+
+.text-group {
+    padding: 100px;
+    margin: auto;
+    color: #00a0ab;
+    font-family: 'Courier New', monospace;
+}
+
+.body-text {
+    align-items: baseline;
+
+}
+
+.divider {
+    width: 15px;
+    height: auto;
+    display: inline-block;
+}
