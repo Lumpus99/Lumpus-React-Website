@@ -15,8 +15,8 @@ export default class Board extends React.Component {
         this.state = {
             cells: [],
             speed: 1000,
-            rowNum: 18,
-            colNum: 30,
+            rowNum: 23,
+            colNum: 40,
             isPaused: true,
         };
 
@@ -44,6 +44,10 @@ export default class Board extends React.Component {
     componentDidMount() {
         document.addEventListener('mousedown', this.handleMoseDown);
         document.addEventListener('mouseup', this.handleMoseUp);
+        this.setState({
+                    rowNum: 18,
+                    colNum: 30
+                });
 
     }
 
@@ -167,6 +171,8 @@ export default class Board extends React.Component {
                     rowNum: 23,
                     colNum: 40
                 });
+                break;
+            default:
                 break;
 
         }
