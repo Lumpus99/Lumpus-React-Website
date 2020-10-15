@@ -45,7 +45,8 @@
     justify-content: center;
     width: 400px;
     height: 100px;
-    background: rgba(216, 255, 252, 0.5);
+    background: rgba(0, 74, 70, 0.5);
+    color: #95c9e4;
 }
 
 .label {
