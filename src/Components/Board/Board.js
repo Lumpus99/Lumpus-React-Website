@@ -49,7 +49,7 @@ export default class Board extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevState.speed !== this.state.speed && prevState.isPaused !== this.state.isPaused) {
-                this.handleStart();
+            this.handleStart();
         }
         if (prevState.rowNum !== this.state.rowNum) {
             this.handleReset();
@@ -186,6 +186,7 @@ export default class Board extends React.Component {
                             defaultValue={2}
                             dotStyle={{
                                 marginTop: 1,
+                                borderColor: '#96DBFA',
                             }}
                             onChange={this.handleSizeChange}
                             trackStyle={{backgroundColor: '2e84b2', height: 10}}
@@ -198,20 +199,26 @@ export default class Board extends React.Component {
                                 marginTop: -9,
                                 backgroundColor: 'black',
                             }}/>
-                        <h4 className="label">Speed: {this.state.speed} milliseconds</h4>
+                        <h4 className="label">Speed: {this.state.speed} milliseconds/step</h4>
                         <Slider
                             className="slider"
                             min={250}
                             max={3000}
                             step={250}
+                            reverse={true}
                             dots={true}
                             defaultValue={1000}
+                            activeDotStyle={{
+                                marginTop: 1,
+                                borderColor: '#E9E9E9',
+                            }}
                             dotStyle={{
                                 marginTop: 1,
+                                borderColor: '#96DBFA',
                             }}
                             onChange={this.handleSpeedChange}
-                            trackStyle={{backgroundColor: '2e84b2', height: 10}}
-                            railStyle={{backgroundColor: '349890', height: 10}}
+                            trackStyle={{backgroundColor: '#E9E9E9', height: 10}}
+                            railStyle={{backgroundColor: '#96DBFA', height: 10}}
                             handleStyle={{
                                 borderColor: '67cbc3',
                                 height: 28,
