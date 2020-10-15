@@ -48,8 +48,8 @@ export default class Board extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevState.speed !== this.state.speed) {
-            this.handleStart();
+        if (prevState.speed !== this.state.speed && prevState.isPaused !== this.state.isPaused) {
+                this.handleStart();
         }
         if (prevState.rowNum !== this.state.rowNum) {
             this.handleReset();
