@@ -33,11 +33,14 @@
 
 .config {
     margin: auto;
+    padding: 20px;
     display: table;
     align-items: center;
     justify-content: center;
     width: 400px;
     height: 100px;
+    background-color: #d8fffc;
 }
 
 .label {margin: 10px;}
+

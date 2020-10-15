@@ -15,12 +15,12 @@ export default class Board extends React.Component {
         this.state = {
             cells: [],
             speed: 1000,
-            rowNum: 23,
-            colNum: 40
+            rowNum: 18,
+            colNum: 30,
+            isPaused: true,
         };
 
 
-        this.isPaused = true;
         this.isMouseDown = false;
 
         for (let i = 0; i < (this.state.rowNum * this.state.colNum); i++) {
@@ -75,12 +75,13 @@ export default class Board extends React.Component {
         return this.isMouseDown;
     }
 
-    getCols(updateFunction, getMousedown) {
+    getCols(updateFunction, getMousedown, isPaused) {
         let cols = [];
         let rowCount = this.state.rowNum;
         for (let i = this.state.rowNum; i <= (this.state.rowNum * this.state.colNum); i += this.state.rowNum) {
             cols.push(this.state.cells.slice(i - this.state.rowNum, i).map(function (item, index) {
                 return (<div className="cellDiv" key={index}><Cell isAlive={item}
+                                                                   isPaused={isPaused}
                                                                    index={i + index - rowCount}
                                                                    updateCell={updateFunction}
                                                                    getMousedown={getMousedown}/>
@@ -109,29 +110,28 @@ export default class Board extends React.Component {
 
     handleReset() {
         clearInterval(this.interval);
-        this.isPaused = true;
         this.setState(state => {
             const cells = state.cells.map(() => false);
-
             return {
-                cells,
+                cells: cells,
+                isPaused: true
             };
         });
     }
 
     handlePause() {
         clearInterval(this.interval);
-        this.isPaused = true;
+        this.setState({isPaused: true})
     }
 
     handleStart() {
-        if (this.isPaused) {
-            this.isPaused = false;
+        this.setState({isPaused: false});
+        if (this.state.isPaused) {
             this.interval = setInterval(() => this.setState(state => {
                 let newBoard = getNextBoard(this.state.rowNum, this.state.colNum, this.state.cells);
                 const cells = state.cells.map((item, index) => newBoard[index]);
                 return {
-                    cells,
+                    cells
                 };
             }), this.state.speed);
         }
@@ -158,6 +158,12 @@ export default class Board extends React.Component {
                 break;
             case 2:
                 this.setState({
+                    rowNum: 18,
+                    colNum: 30
+                });
+                break;
+            case 3:
+                this.setState({
                     rowNum: 23,
                     colNum: 40
                 });
@@ -172,11 +178,12 @@ export default class Board extends React.Component {
                     <div className="config">
                         <h4 className="label">Board Size: {this.state.rowNum} X {this.state.colNum}</h4>
                         <Slider
+                            className="slider"
                             min={0}
-                            max={2}
+                            max={3}
                             step={1}
                             dots={true}
-                            defaultValue={3}
+                            defaultValue={2}
                             dotStyle={{
                                 marginTop: 1,
                             }}
@@ -193,6 +200,7 @@ export default class Board extends React.Component {
                             }}/>
                         <h4 className="label">Speed: {this.state.speed} milliseconds</h4>
                         <Slider
+                            className="slider"
                             min={250}
                             max={3000}
                             step={250}
@@ -219,7 +227,7 @@ export default class Board extends React.Component {
                     <table className="gameBoard" cellSpacing={0}>
                         <tbody>
                         <tr>
-                            {this.getCols(this.updateCell, this.getMousedown).map(function (item, index) {
+                            {this.getCols(this.updateCell, this.getMousedown, this.state.isPaused).map(function (item, index) {
                                 return <td className="col" key={index}>{item}</td>
                             })}
                         </tr>

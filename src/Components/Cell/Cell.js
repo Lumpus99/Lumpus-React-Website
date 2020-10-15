@@ -21,6 +21,7 @@ export default class Cell extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleMouseHover = this.handleMouseHover.bind(this);
         this.handleMouseHoverEnd = this.handleMouseHoverEnd.bind(this);
+        this.determineBorder = this.determineBorder.bind(this);
 
     }
 
@@ -69,6 +70,10 @@ export default class Cell extends React.Component {
         }
     }
 
+    determineBorder(){
+        return (this.props.isPaused) ? "2px solid #000000" :  "2px solid #515368";
+    }
+
     render() {
         return (
             <div>
@@ -78,7 +83,8 @@ export default class Cell extends React.Component {
                         onMouseDown={this.handleClick}
                         type='button'
                         style={{
-                            backgroundColor: this.determineColor()
+                            backgroundColor: this.determineColor(),
+                            border: this.determineBorder()
                         }}>
 
                 </button>

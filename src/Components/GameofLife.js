@@ -48,57 +48,31 @@ function lowerLeftNeighbor(rowNum, board, cellX, cellY) {
 
 
 function getNextState(rowNum, colNum, board, cellX, cellY) {
-    let nbrs = [];
     let neighborNumber = 0;
     if (upperNeighbor(rowNum, board, cellX, cellY)) {
-        nbrs.push("upper");
         neighborNumber++;
     }
     if (lowerNeighbor(rowNum, board, cellX, cellY)) {
-        nbrs.push("lower");
-
         neighborNumber++;
     }
     if (leftNeighbor(rowNum, board, cellX, cellY)) {
-        nbrs.push("left");
-
         neighborNumber++;
     }
     if (rightNeighbor(rowNum, colNum, board, cellX, cellY)) {
-        nbrs.push("right");
-
         neighborNumber++;
     }
     if (upperLeftNeighbor(rowNum, board, cellX, cellY)) {
-        nbrs.push("upperLeft");
-
         neighborNumber++;
     }
     if (upperRightNeighbor(rowNum, colNum, board, cellX, cellY)) {
-        nbrs.push("upperRight");
-
         neighborNumber++;
     }
     if (lowerLeftNeighbor(rowNum, board, cellX, cellY)) {
-        nbrs.push("lowerLeft");
-
         neighborNumber++;
     }
     if (lowerRightNeighbor(rowNum, colNum, board, cellX, cellY)) {
-        nbrs.push("lowerRight");
-
         neighborNumber++;
     }
-    /*
-    if (cellX === 1)
-        console.log({
-            isAlive: (rowNum * (cellX - 1)) + (cellY - 1),
-            cellY: cellY,
-            neighborNumber: neighborNumber,
-            nbrs: nbrs
-        });
-
-     */
 
     if (board[rowNum * cellX + cellY]) {
         switch (neighborNumber) {
@@ -125,7 +99,6 @@ export default function getNextBoard(rowNum, colNum, board) {
             (Math.floor(index / rowNum)),
             (index % rowNum)));
     });
-    //console.log("----------------");
     return newBoard;
 }
 
